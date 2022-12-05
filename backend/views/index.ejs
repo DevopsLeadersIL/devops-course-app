@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>This is the users list delivered by the api of this example app:</p>
+    <ul>
+      <% studentsList.forEach(function(student) { %>
+      <li>
+        <p>_id:<%= student._id %></p>
+        <p>Name:<%= student.name %></p>
+        <p>Course:<%= student.course %></p>
+      </li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
