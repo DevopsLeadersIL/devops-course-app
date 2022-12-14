@@ -1,0 +1,25 @@
+version: "3.3"
+services:
+  db-service:
+    hostname: devops-course-mongo
+    build:
+      context: ./db/mongodb
+    image: devops-course-mongo
+    ports:
+      - "27017:27017"
+
+  backend-service:
+    hostname: devops-course-backend
+    build:
+      context: ./backend
+    image: devops-course-backend
+    ports:
+      - "3000:3000"
+
+  frontend-service:
+    hostname: devops-course-frontend
+    build:
+      context: ./frontend
+    image: devops-course-frontend
+    ports:
+      - "80:3000"
