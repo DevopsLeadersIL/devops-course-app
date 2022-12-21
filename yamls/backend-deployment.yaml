@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: docker.io/library/backend:latest
+          imagePullPolicy: Never
+          env:
+            - name: MONGO_URI
+              value: mongodb://mongo:mongo123@mongo-db:27017/devopsleadersil?authSource=admin
+          ports:
+            - containerPort: 3000
