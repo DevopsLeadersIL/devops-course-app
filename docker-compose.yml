@@ -2,9 +2,7 @@ version: "3.3"
 services:
   db-service:
     hostname: devops-course-mongo
-    build:
-      context: ./db/mongodb
-    image: devops-course-mongo
+    image: mongo:latest
     ports:
       - "27017:27017"
 
@@ -25,6 +23,6 @@ services:
       context: ./frontend
     image: devops-course-frontend
     environment:
-      - REACT_APP_BACKEND_URL=http://0.0.0.0:3000
+      - REACT_APP_BACKEND_URL=http://<BACKEND_IP>:<BACKEND_PORT>
     ports:
       - "80:80"
