@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.Replicas }}
+  selector:
+    matchLabels:
+      app:  {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app:  {{ .Release.Name }}
+    spec:
+      containers:
+        - name:  {{ .Release.Name }}
+          image: docker.io/library/{{ .Release.Name }}:latest
+          imagePullPolicy: Never
+          env:
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name:  {{ .Release.Name }}-secret
+                  key: mongodb_uri
+          ports:
+            - containerPort: {{ .Values.containerPort }}

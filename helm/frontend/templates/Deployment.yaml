@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.Replicas }}
+  selector:
+    matchLabels:
+      app:  {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app:  {{ .Release.Name }}
+    spec:
+      containers:
+        - name:  {{ .Release.Name }}
+          image: docker.io/library/{{ .Release.Name }}:latest
+          imagePullPolicy: Never
+          env:
+            - name: REACT_APP_BACKEND_URL
+              value: http://localhost:3000
+          ports:
+            - containerPort: {{ .Values.containerPort }}
