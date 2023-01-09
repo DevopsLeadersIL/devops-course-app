@@ -1,0 +1,14 @@
+
+dbFolder: "/data/db"
+
+replicaCount: 1
+
+containerPort: 27017
+
+service:
+  http:
+    port: 27017
+    targetPort: 27017
+
+serviceAccount:
+  enabled: true

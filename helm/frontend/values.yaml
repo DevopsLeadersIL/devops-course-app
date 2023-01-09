@@ -1,0 +1,11 @@
+replicaCount: 1
+
+containerPort: 80
+
+service:
+  http:
+    port: 8080
+    targetPort: 80
+
+serviceAccount:
+  enabled: true

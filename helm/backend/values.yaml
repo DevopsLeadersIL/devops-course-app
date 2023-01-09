@@ -1,0 +1,12 @@
+
+replicaCount: 1
+
+containerPort: 3000
+
+service:
+  http:
+    port: 3000
+    targetPort: 3000
+
+serviceAccount:
+  enabled: true
