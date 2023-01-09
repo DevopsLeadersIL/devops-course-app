@@ -1,13 +1,13 @@
 # devops-course-app
 
-##Welcome to the DevOps Leaders IL - Course Application repository.
+## Welcome to the DevOps Leaders IL - Course Application repository.
 This Application will simulate a student list. It has a web UI to display/delete/add students and courses.
 The Application is built from 3 services:
 FrontEnd - located under /frontend - ReactJS web application.
 Backend API - located under /backend - NodeJS Express server
 MongoDB - an external Document DB that we use to store our data
 
-###Running the Application:
+### Running the Application:
 
 1. First of all, you need to run the DB. You can do this in a few ways:
    Downloading, installing and running MongoDB as a service on your computer
