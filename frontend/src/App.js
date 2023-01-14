@@ -17,7 +17,7 @@ function App() {
           <Navbar.Brand href="#home">
             <img
               alt=""
-              src="./logo.svg"
+              src="logo.svg"
               width="30"
               height="30"
               className="d-inline-block align-top"
@@ -48,7 +48,7 @@ function App() {
       <br />
       <Form>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Label>Student Full Name - Test</Form.Label>
+          <Form.Label>Student Full Name</Form.Label>
           <Form.Control
             type="text"
             placeholder="Ploni Almoni"
@@ -73,7 +73,7 @@ function App() {
             addStudent(newStudent);
           }}
         >
-          Add Student to DB - Bla Bla
+          Add Student to DB
         </Button>
       </Form>
     </div>
