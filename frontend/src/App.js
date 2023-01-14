@@ -73,7 +73,7 @@ function App() {
             addStudent(newStudent);
           }}
         >
-          Add Student to DB
+          Add Student to DB - Bla Bla
         </Button>
       </Form>
     </div>
