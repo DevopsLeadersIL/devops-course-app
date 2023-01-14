@@ -22,7 +22,7 @@ function App() {
               height="30"
               className="d-inline-block align-top"
             />{" "}
-            DevopsLeadersIL - Course App
+            DevopsLeadersIL - Course App - Forked Versoin
           </Navbar.Brand>
         </Container>
       </Navbar>

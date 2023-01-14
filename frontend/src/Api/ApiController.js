@@ -1,6 +1,6 @@
 import axios from "axios";
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
-
+var credentials = "AKsdiejfjhirgD@345664w"
 console.log("backendUrl", backendUrl);
 
 export async function getStudents() {
