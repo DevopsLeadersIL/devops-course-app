@@ -1,4 +1,4 @@
-name: Oldscool CI-CD
+name: Oldschool CI-CD
 
 on:
   workflow_dispatch:
