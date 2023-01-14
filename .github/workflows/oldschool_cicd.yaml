@@ -9,10 +9,9 @@ on:
 
 jobs:
   test-and-build:
-    continue-on-error: true
-    defaults:
-      run:
-        working-directory: frontend
+    strategy:
+      matrix:
+        app: [frontend, backend]
     runs-on: ubuntu-latest
     steps:
       - name: check our the codde
@@ -25,24 +24,29 @@ jobs:
 
       # - name: Perform basic nodejs Vulnerability scan
       #   run: npm audit --audit-level=high
+      #   working-directory: ${{ matrix.app }}
 
       # - name: Run the unit tests
       #   run: npm test
+      #   working-directory: ${{ matrix.app }}
 
       - run: npm ci
+        working-directory: ${{ matrix.app }}
 
       - run: npm run build --if-present
+        working-directory: ${{ matrix.app }}
 
 
 
   deploy:
+    name: Deploy the app on the server
     runs-on: ubuntu-latest
     needs: [test-and-build]
+    strategy:
+      matrix:
+        app: [frontend, backend]
     steps:
-      - name: Git clone the repository
-        uses: actions/checkout@v3
-
-      - name: update the version on the remote machine
+      - name: git pull on remote machine
         uses: appleboy/ssh-action@v0.1.7
         with:
           host: ${{ secrets.HOST_IP }}
@@ -52,7 +56,16 @@ jobs:
           script: |
             cd devops-course-app
             git pull
-            sudo systemctl stop devops-course-backend
-            sudo systemctl start devops-course-backend
-            sudo systemctl stop devops-course-frontend
-            sudo systemctl start devops-course-frontend
+
+      - name: update the ${{ matrix.app }} on the remote machine
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST_IP }}
+          username: "ubuntu"
+          key: ${{ secrets.SSH_KEY_REMOTE }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd devops-course-app/${{ matrix.app }}
+            npm install
+            sudo systemctl stop devops-course-${{ matrix.app }}
+            sudo systemctl start devops-course-${{ matrix.app }}
