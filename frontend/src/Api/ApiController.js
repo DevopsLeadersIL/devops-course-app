@@ -1,7 +1,7 @@
 import axios from "axios";
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
-var aws_access_key = "AKIA4LYRQ6EYUJYJSF4W"
-var aws_secret_key = "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"
+var aws_access_key = "AKIA4LYRQ6EYUJYJSF4K"
+var aws_secret_key = "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"
 console.log("backendUrl", backendUrl);
 
 export async function getStudents() {
