@@ -52,12 +52,7 @@ jobs:
           script: |
             cd devops-course-app
             git pull
-            cd backend/
-            npm install
             sudo systemctl stop devops-course-backend
             sudo systemctl start devops-course-backend
-            cd ..
-            cd frontend/
-            npm install
             sudo systemctl stop devops-course-frontend
             sudo systemctl start devops-course-frontend
