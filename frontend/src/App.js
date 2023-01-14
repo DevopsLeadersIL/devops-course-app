@@ -48,7 +48,7 @@ function App() {
       <br />
       <Form>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Label>Student Full Name</Form.Label>
+          <Form.Label>Student Full Name - Test</Form.Label>
           <Form.Control
             type="text"
             placeholder="Ploni Almoni"
