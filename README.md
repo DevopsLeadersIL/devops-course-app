@@ -9,6 +9,8 @@ MongoDB - an external Document DB that we use to store our data
 
 ### Running the Application:
 
+#lian
+
 1. First of all, you need to run the DB. You can do this in a few ways:
    Downloading, installing and running MongoDB as a service on your computer
    Running it using Docker (given that you have Docker installed)
