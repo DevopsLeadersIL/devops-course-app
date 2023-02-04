@@ -11,6 +11,7 @@ data "aws_availability_zones" "available" {}
 
 locals {
   cluster_name = "tf-us-east-2-eks-${random_string.suffix.result}" # can be changed to specific name
+  vpc_name = "tf-devops-course-vpc-${random_string.suffix.result}"
 }
 
 resource "random_string" "suffix" {

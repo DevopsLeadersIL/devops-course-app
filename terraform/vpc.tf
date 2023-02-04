@@ -2,7 +2,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "3.14.2"
 
-  name = "devops-course-vpc-[name]"
+  name = local.vpc_name #"devops-course-vpc-${random_string.suffix.result}"
 
   cidr = "10.101.0.0/16"
   azs  = slice(data.aws_availability_zones.available.names, 0, 3)
